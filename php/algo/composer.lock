@@ -1,0 +1,116 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "245b8651704dd865b830fbd6553a7313",
+    "content-hash": "2506ce0ca9b72ab54a6bd33a742cf022",
+    "packages": [
+        {
+            "name": "prelude/prelude",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sergiors/prelude.git",
+                "reference": "ac03106f9cf1ef8c77542a0b2ac39e3b0f7548e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sergiors/prelude/zipball/ac03106f9cf1ef8c77542a0b2ac39e3b0f7548e6",
+                "reference": "ac03106f9cf1ef8c77542a0b2ac39e3b0f7548e6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "pdepend/pdepend": "^2.2",
+                "phing/phing": "^2.14",
+                "phploc/phploc": "^3.0",
+                "phpmd/phpmd": "^2.4",
+                "phpunit/phpunit": "^5.5",
+                "sebastian/phpcpd": "^2.0",
+                "squizlabs/php_codesniffer": "^2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Prelude\\": "src"
+                },
+                "files": [
+                    "src/consts.php",
+                    "src/allPass.php",
+                    "src/always.php",
+                    "src/anyPass.php",
+                    "src/append.php",
+                    "src/compose.php",
+                    "src/cond.php",
+                    "src/divide.php",
+                    "src/equals.php",
+                    "src/filter.php",
+                    "src/find.php",
+                    "src/flatten.php",
+                    "src/get.php",
+                    "src/getIn.php",
+                    "src/gt.php",
+                    "src/has.php",
+                    "src/head.php",
+                    "src/id.php",
+                    "src/ifElse.php",
+                    "src/isEmpty.php",
+                    "src/indexOf.php",
+                    "src/join.php",
+                    "src/lt.php",
+                    "src/map.php",
+                    "src/maybe.php",
+                    "src/merge.php",
+                    "src/multiply.php",
+                    "src/nextStep.php",
+                    "src/not.php",
+                    "src/partial.php",
+                    "src/pipe.php",
+                    "src/placeholder.php",
+                    "src/prepend.php",
+                    "src/reduce.php",
+                    "src/replace.php",
+                    "src/slice.php",
+                    "src/split.php",
+                    "src/tail.php",
+                    "src/toString.php",
+                    "src/typeof.php"
+                ]
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Prelude\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sérgio Rafael Siqueira",
+                    "email": "sergio@inbep.com.br"
+                }
+            ],
+            "description": "Functional library",
+            "support": {
+                "source": "https://github.com/sergiors/prelude/tree/master",
+                "issues": "https://github.com/sergiors/prelude/issues"
+            },
+            "time": "2016-11-22 21:33:45"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "prelude/prelude": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
