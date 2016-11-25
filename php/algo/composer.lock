@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sergiors/prelude.git",
-                "reference": "ac03106f9cf1ef8c77542a0b2ac39e3b0f7548e6"
+                "reference": "141b7b5dc10e2d588d998cc23b7e53a821e50dc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sergiors/prelude/zipball/ac03106f9cf1ef8c77542a0b2ac39e3b0f7548e6",
-                "reference": "ac03106f9cf1ef8c77542a0b2ac39e3b0f7548e6",
+                "url": "https://api.github.com/repos/sergiors/prelude/zipball/141b7b5dc10e2d588d998cc23b7e53a821e50dc8",
+                "reference": "141b7b5dc10e2d588d998cc23b7e53a821e50dc8",
                 "shasum": ""
             },
             "require": {
@@ -44,6 +44,7 @@
                     "src/always.php",
                     "src/anyPass.php",
                     "src/append.php",
+                    "src/apply.php",
                     "src/compose.php",
                     "src/cond.php",
                     "src/divide.php",
@@ -54,6 +55,7 @@
                     "src/get.php",
                     "src/getIn.php",
                     "src/gt.php",
+                    "src/gte.php",
                     "src/has.php",
                     "src/head.php",
                     "src/id.php",
@@ -62,11 +64,11 @@
                     "src/indexOf.php",
                     "src/join.php",
                     "src/lt.php",
+                    "src/lte.php",
                     "src/map.php",
                     "src/maybe.php",
                     "src/merge.php",
                     "src/multiply.php",
-                    "src/nextStep.php",
                     "src/not.php",
                     "src/partial.php",
                     "src/pipe.php",
@@ -78,7 +80,8 @@
                     "src/split.php",
                     "src/tail.php",
                     "src/toString.php",
-                    "src/typeof.php"
+                    "src/typeof.php",
+                    "src/when.php"
                 ]
             },
             "autoload-dev": {
@@ -100,7 +103,7 @@
                 "source": "https://github.com/sergiors/prelude/tree/master",
                 "issues": "https://github.com/sergiors/prelude/issues"
             },
-            "time": "2016-11-22 21:33:45"
+            "time": "2016-11-25 17:47:13"
         }
     ],
     "packages-dev": [],
