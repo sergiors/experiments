@@ -1,6 +1,7 @@
 {
     "require": {
-        "prelude/prelude": "dev-master"
+        "prelude/prelude": "dev-master",
+        "php": "^7.0"
     },
     "repositories": [
         {

@@ -2,14 +2,8 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-use const Prelude\_;
-use const Prelude\lt;
-use const Prelude\gte;
-use function Prelude\filter;
-use function Prelude\head;
-use function Prelude\tail;
-use function Prelude\merge;
-use function Prelude\placeholder;
+use const Prelude\{_, lt, gte};
+use function Prelude\{filter, head, tail, merge, placeholder};
 
 function qsort(array $xss)
 {

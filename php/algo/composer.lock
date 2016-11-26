@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "245b8651704dd865b830fbd6553a7313",
-    "content-hash": "2506ce0ca9b72ab54a6bd33a742cf022",
+    "hash": "af57f6ef3622ee85882d8d49cd877074",
+    "content-hash": "154eb40502209726797bc2f41e3d7956",
     "packages": [
         {
             "name": "prelude/prelude",
@@ -114,6 +114,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.0"
+    },
     "platform-dev": []
 }
