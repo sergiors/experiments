@@ -12,11 +12,11 @@ say $name;
 say $name.flip;
 
 # arrays
-my @animals = 'camel', 'vicuña', 'llama';
+my @animals = 'camel','vicuña','llama';
 
 say 'The zoo contais ' ~ @animals.elems ~ ' animals';
 say 'The animals are: ' ~ @animals;
-say 'We\'re going to let go: ' ~ @animals.splice(1, 2) ~ ' and keep the ' ~ @animals;
+say 'We\'re going to let go: ' ~ @animals.splice(1,2) ~ ' and keep the ' ~ @animals;
 
 my @array[2];
 @array[0] = 'first value';
