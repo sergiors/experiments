@@ -24,20 +24,20 @@ function palindrome($str)
 {
     $str = preg_replace('/\W+/', '', strtolower($str));
     $mid = init(tail($str));
-    
+    $eq = head($str) === last($str);
+
     if ($mid) {
-        return head($str) === last($str)
-            && palindrome($mid);
+        return $eq && palindrome($mid);
     }
-    
-    return head($str) === last($str);
+
+    return $eq;
 }
 
-var_dump(palindrome('Rotor')); // => true
-var_dump(palindrome('Racecar')); // => true
-var_dump(palindrome('Arara')); // => true
-var_dump(palindrome('my gym')); // => true
-var_dump(palindrome('Red rum, sir, is murder')); // => true
+assert(true === palindrome('Rotor'));
+assert(true === palindrome('Racecar'));
+assert(true === palindrome('Arara'));
+assert(true === palindrome('my gym'));
+assert(true === palindrome('Red rum, sir, is murder'));
 
 /*
 http://examples.yourdictionary.com/palindrome-examples.html
