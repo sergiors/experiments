@@ -2,8 +2,7 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-use const Prelude\{_, lt, gte};
-use function Prelude\{filter, head, tail, merge, placeholder};
+use function Prelude\{gt, lte, head, tail, filter};
 
 function qsort(array $xss)
 {
@@ -11,13 +10,17 @@ function qsort(array $xss)
         return [];
     }
 
-    $pv = head($xss);
+    $pivot = head($xss);
     $xs = tail($xss);
 
-    $lt = placeholder(lt, _, $pv);
-    $gte = placeholder(gte, _, $pv);
+    $greaterThanPivot = filter(gt($pivot));
+    $lessThanPivot = filter(lte($pivot));
 
-    return merge(qsort(filter($lt, $xs)), [$pv], qsort(filter($gte, $xs)));
+    return array_merge(
+        qsort($greaterThanPivot($xs)),
+        [$pivot],
+        qsort($lessThanPivot($xs))
+    );
 }
 
 assert(qsort([2, 1, 4, 100, 77, 3, 99, 5]) === [1, 2, 3, 4, 5, 77, 99, 100]);
