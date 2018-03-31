@@ -5,5 +5,5 @@ pip install -r requirements.txt
 `pip3` for macOS
 
 ```bash
-gunicorn wsgi:app
+gunicorn -k gevent app:app
 ```
