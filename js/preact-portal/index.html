@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta
-            name="description"
-            content="Web site created using create-react-app"
-        />
-        <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-        <title>React App</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite + Preact</title>
         <style>
             body {
                 margin: 0;
@@ -46,9 +38,7 @@
                 height: 1.6rem;
             }
 
-            .cart__placeholder {
-                width: 100%;
-                height: 100%;
+            .cart__icon-area.waiting {
                 background-color: gainsboro;
                 border-radius: 0.225rem;
             }
@@ -85,14 +75,10 @@
         </style>
     </head>
     <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-
         <header>
             <div class="container">
                 <nav>
-                    <div class="cart__icon-area">
-                        <div class="cart__placeholder"></div>
-                    </div>
+                    <div class="cart__icon-area waiting"></div>
                 </nav>
             </div>
         </header>
@@ -126,6 +112,7 @@
             </ul>
         </div>
 
-        <div id="root"></div>
+        <div id="app"></div>
+        <script type="module" src="/src/index.jsx"></script>
     </body>
 </html>

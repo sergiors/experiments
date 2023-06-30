@@ -1,9 +1,11 @@
-import { useContext, useEffect } from "react";
-import { createPortal } from "react-dom";
-import { CartContext } from "./context";
+import { render } from "preact";
+import { createPortal } from "preact/compat";
+import { useContext, useEffect } from "preact/hooks";
+import { Context, Provider } from "./context";
+import emitter from "./emitter";
 
 function Counter() {
-    const { totalItems } = useContext(CartContext);
+    const { totalItems } = useContext(Context);
 
     if (totalItems === 0) {
         return null;
@@ -18,10 +20,10 @@ function Counter() {
 
 function Button() {
     useEffect(() => {
-        const el = document.querySelector(".cart__placeholder");
+        const el = document.querySelector(".cart__icon-area");
 
-        if (el) {
-            el.remove();
+        if (el.classList.contains("waiting")) {
+            el.classList.remove("waiting");
         }
     }, []);
 
@@ -50,8 +52,12 @@ function Button() {
     );
 }
 
-function App() {
-    const { items } = useContext(CartContext);
+function Drawer() {
+    
+}
+
+export function App() {
+    const { items } = useContext(Context);
 
     return (
         <>
@@ -59,7 +65,7 @@ function App() {
                 <Button />,
                 document.querySelector(".cart__icon-area")
             )}
-            <div className="App">
+            <div className="container">
                 {items.map(({ id, name }) => {
                     return (
                         <div key={id}>
@@ -72,4 +78,17 @@ function App() {
     );
 }
 
-export default App;
+function buyItem({ target: { dataset } }) {
+    emitter.emit("added", dataset);
+}
+
+Array.from(document.querySelectorAll(".buy-it")).forEach((el) =>
+    el.addEventListener("click", buyItem)
+);
+
+render(
+    <Provider>
+        <App />
+    </Provider>,
+    document.getElementById("app")
+);
