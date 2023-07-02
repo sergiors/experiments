@@ -2,23 +2,28 @@ import { createContext } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import emitter from "./emitter";
 
-export const Context = createContext({ items: [], totalItems: 0 });
+export const Context = createContext({
+    items: [],
+    isOpen: false,
+});
 
 export function Provider({ children }) {
     const [items, setItem] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        const addItem = emitter.on("added", (dataset) => {
+        const unbind = emitter.on("added", (dataset) => {
             setItem((items) => [dataset, ...items]);
+            setIsOpen(true);
         });
 
         return () => {
-            addItem();
+            unbind();
         };
     }, []);
 
     return (
-        <Context.Provider value={{ items, totalItems: items.length }}>
+        <Context.Provider value={{ items, isOpen, setIsOpen }}>
             {children}
         </Context.Provider>
     );

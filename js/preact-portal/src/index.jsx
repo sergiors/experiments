@@ -5,20 +5,19 @@ import { Context, Provider } from "./context";
 import emitter from "./emitter";
 
 function Counter() {
-    const { totalItems } = useContext(Context);
+    const { items } = useContext(Context);
+    const total = items.length;
 
-    if (totalItems === 0) {
+    if (total === 0) {
         return null;
     }
 
-    return (
-        <span className="cart__counter">
-            {totalItems >= 10 ? "9+" : totalItems}
-        </span>
-    );
+    return <span className="cart__counter">{total >= 10 ? "9+" : total}</span>;
 }
 
 function Button() {
+    const { setIsOpen } = useContext(Context);
+
     useEffect(() => {
         const el = document.querySelector(".cart__icon-area");
 
@@ -27,12 +26,12 @@ function Button() {
         }
     }, []);
 
-    const handleClick = () => {
-        console.log("a");
-    };
-
     return (
-        <button type="button" className="cart__button" onClick={handleClick}>
+        <button
+            type="button"
+            className="cart__button"
+            onClick={() => setIsOpen(true)}
+        >
             <Counter />
             <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -53,19 +52,25 @@ function Button() {
 }
 
 function Drawer() {
-    
-}
+    const { items, isOpen, setIsOpen } = useContext(Context);
+    const total = items.length;
 
-export function App() {
-    const { items } = useContext(Context);
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+    }, [isOpen]);
+
+    const handleClose = () => setIsOpen(false);
 
     return (
-        <>
-            {createPortal(
-                <Button />,
-                document.querySelector(".cart__icon-area")
-            )}
-            <div className="container">
+        <div className={isOpen ? "open" : null}>
+            <div className="drawer__backdrop" onClick={handleClose} />
+            <div className="drawer__content">
+                <button onClick={handleClose}>fechar</button>
+                {total === 0 && <>zero</>}
                 {items.map(({ id, name }) => {
                     return (
                         <div key={id}>
@@ -74,6 +79,18 @@ export function App() {
                     );
                 })}
             </div>
+        </div>
+    );
+}
+
+export function App() {
+    return (
+        <>
+            {createPortal(
+                <Button />,
+                document.querySelector(".cart__icon-area")
+            )}
+            <Drawer />
         </>
     );
 }

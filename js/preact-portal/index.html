@@ -72,6 +72,48 @@
                 padding: 0;
                 gap: 1rem;
             }
+
+            .open > .drawer__content {
+                transform: none;
+            }
+
+            .drawer__content {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                max-width: 28rem;
+                width: 100vw;
+                z-index: 100;
+                background-color: white;
+                transform: translateX(100%);
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 100ms;
+            }
+
+            .drawer__backdrop {
+                background-color: rgba(28, 25, 23, 0.3);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                position: fixed;
+                inset: 0;
+                z-index: 99;
+                opacity: 0;
+                visibility: hidden;
+                transition-property: opacity;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 100ms;
+            }
+
+            .open > .drawer__backdrop {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            .overflow-hidden {
+                overflow: hidden;
+            }
         </style>
     </head>
     <body>
@@ -105,6 +147,18 @@
                         data-id="css101"
                         data-unitprice="10000"
                         data-name="CSS 101"
+                    >
+                        Add
+                    </button>
+                </li>
+                <li>
+                    <h5>PHP 101</h5>
+                    <button
+                        type="button"
+                        class="buy-it"
+                        data-id="php101"
+                        data-unitprice="10000"
+                        data-name="PHP 101"
                     >
                         Add
                     </button>
